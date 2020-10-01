@@ -1,0 +1,24 @@
+{
+  "name": "chat-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mariadb": "^2.4.2",
+    "sequelize": "^6.3.5",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/sequelize": "^4.28.9",
+    "@types/socket.io": "^2.1.11"
+  }
+}
