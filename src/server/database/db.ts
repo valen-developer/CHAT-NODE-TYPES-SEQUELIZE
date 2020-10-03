@@ -5,6 +5,8 @@ import {
   defineMessageModel,
 } from "./models/message_model.db";
 
+import { GroupModel, defineGroupModel } from "./models/group_model.db";
+
 //Init database
 const db = new DataBase();
 db.connection();
@@ -12,13 +14,10 @@ db.connection();
 //Define Models
 defineUserModel(db.sequelize);
 defineMessageModel(db.sequelize);
+defineGroupModel(db.sequelize);
 
 //Relatioships
 UserModel.hasMany(MessageSentModel, { as: "user", foreignKey: "user_send" });
-UserModel.hasMany(MessageSentModel, {
-  as: "user_receive",
-  foreignKey: "user_receive",
-});
 
 //sync models
 db.syncModels();

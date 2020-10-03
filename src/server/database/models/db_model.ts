@@ -3,7 +3,7 @@ import { Sequelize } from "sequelize";
 import { DBCONFIG } from "../../../config/config";
 
 export class DataBase {
-  sequelize: Sequelize;
+  public sequelize: Sequelize;
 
   constructor() {
     this.sequelize = new Sequelize(

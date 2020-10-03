@@ -13,6 +13,16 @@ export let defineMessageModel = (seq: Sequelize) => {
       message: {
         type: DataTypes.TEXT,
       },
+      group: {
+        type: DataTypes.INTEGER,
+        defaultValue: null,
+        allowNull: true,
+      },
+      user_receive: {
+        type: DataTypes.INTEGER,
+        defaultValue: null,
+        allowNull: true,
+      },
     },
     {
       sequelize: seq,
@@ -24,5 +34,6 @@ export let defineMessageModel = (seq: Sequelize) => {
 export interface Message {
   message: string;
   user_send: number;
-  user_receive: number;
+  user_receive?: number;
+  group?: number;
 }

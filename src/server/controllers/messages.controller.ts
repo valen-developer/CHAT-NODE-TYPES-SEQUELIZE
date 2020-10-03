@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Op } from "sequelize";
 
 import { MessageSentModel, Message } from "../database/models/message_model.db";
-
+import { checkMessage } from "../middlewares/messages_middlewares/checkmessage.middleware";
 
 //GET EVERY MESSAGE OF A USER
 
@@ -22,14 +22,14 @@ export let getAllMessagesById = async (req: Request, resp: Response) => {
   });
 };
 
-
 //CREATE NEW MESSAGE BETWEEN TWO USERS
 
 export let createMessage = async (req: Request, resp: Response) => {
   const newMessage: Message = {
     message: req.body.message,
     user_send: Number(req.body.user_send_id),
-    user_receive: Number(req.body.user_receive_id),
+    user_receive: req.body.user_receive,
+    group: req.body.group ? req.body.group : null,
   };
 
   try {
