@@ -1,12 +1,15 @@
 import { Server } from "./server/server";
 import { routes } from "./server/routes/index.routing";
+import { ChatSocketConnection } from "./server/websockets/socket";
 
-import { SocketConnection } from "./server/websockets/socket";
 
 export const server = Server.init(3000);
 
-//create socket
-const socket = new SocketConnection(server.http);
+const cors = require('cors');
+server.app.use(cors());
+
+//create chatsocket
+const socket = new ChatSocketConnection(server.http);
 
 
 //Body Parser
